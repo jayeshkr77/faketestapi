@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const fetch = require('node-fetch');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
@@ -17,7 +18,7 @@ mongoose.connect(process.env.DATABASE_URI,{ useNewUrlParser: true })
 var port = process.env.PORT || 4000;
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({extended:false}));
 
 app.use('/add',add);
 app.use('/get',retrieve);
@@ -25,6 +26,22 @@ app.use('/get',retrieve);
 app.get('/', (req, res) => {
     res.sendFile(__dirname+'/README.md');
 })
+
+app.get('/display',(req,res) => {
+    var url = "faketestapi.herokuapp.com";
+    fetch(url, {
+        method: 'POST',
+        body: JSON.stringify({
+            score:11,
+        }),
+        headers: {
+            "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+        }
+    })
+    .then(response => response.json())
+    .then(json => {console.log(json); res.send(json)})
+    .catch(err => res.send(err))
+});
 //for rest any url
 app.get('*', (req, res) => {
     res.status(404).send({error:'no route',type:'get'});
