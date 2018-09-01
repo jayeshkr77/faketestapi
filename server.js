@@ -20,6 +20,9 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use('/add',add);
 app.use('/get',retrieve);
 
+app.get('/', (req, res) => {
+    res.sendFile('./README.md');
+})
 //for rest any url
 app.get('*', (req, res) => {
     res.status(404).send({error:'no route',type:'get'});
