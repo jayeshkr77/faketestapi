@@ -2,7 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+
 dotenv.load();
+
 const add = require('./routes/add');
 const retrieve = require('./routes/get');
 
