@@ -21,7 +21,7 @@ app.use('/add',add);
 app.use('/get',retrieve);
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname+'./README.md');
+    res.sendFile(__dirname+'/README.md');
 })
 //for rest any url
 app.get('*', (req, res) => {
