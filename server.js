@@ -35,15 +35,15 @@ app.get('/', (req, res) => {
 })
 
 app.get('/display',(req,res) => {
-    var url = "faketestapi.herokuapp.com";
+    var url = "http://faketestapi.herokuapp.com/get/data";
     fetch(url, {
         method: 'POST',
-        form:{
-            name:'baba'
-        },
         headers: {
-            "Content-type": 'application/x-www-form-urlencoded',
-        }
+            "Content-type": 'application/json;',
+        },
+        body:JSON.stringify({
+            'score':69
+        }),
     })
     .then(response => {response.json(); console.log(response)})
     .then(json => {console.log(json); res.send(json)})
