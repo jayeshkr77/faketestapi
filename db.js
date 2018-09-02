@@ -14,6 +14,7 @@ async function addUser(data,callback) {
 }
 
 async function getUser(data,callback) {
+    console.log(`data : ${data}`);
     var result = await User.find(data);
     callback(result);
 }

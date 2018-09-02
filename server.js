@@ -45,7 +45,7 @@ app.get('/display',(req,res) => {
             'score':69
         }),
     })
-    .then(response => {response.json(); console.log(response)})
+    .then(response => response.json())
     .then(json => {console.log(json); res.send(json)})
     .catch(err => res.send(err))
 });
