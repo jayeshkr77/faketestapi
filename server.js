@@ -17,6 +17,12 @@ mongoose.connect(process.env.DATABASE_URI,{ useNewUrlParser: true })
 
 var port = process.env.PORT || 4000;
 
+
+app.use((req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, X-Access-Token, X-Key");
+});
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
@@ -31,14 +37,14 @@ app.get('/display',(req,res) => {
     var url = "faketestapi.herokuapp.com";
     fetch(url, {
         method: 'POST',
-        body: JSON.stringify({
-            score:11,
-        }),
+        form:{
+            name:'baba'
+        },
         headers: {
-            "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+            "Content-type": 'application/x-www-form-urlencoded',
         }
     })
-    .then(response => response.json())
+    .then(response => {response.json(); console.log(response)})
     .then(json => {console.log(json); res.send(json)})
     .catch(err => res.send(err))
 });
