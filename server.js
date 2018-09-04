@@ -42,7 +42,7 @@ app.get('/display',(req,res) => {
             "Content-type": 'application/json;',
         },
         body:JSON.stringify({
-            'score':69
+            score:69
         }),
     })
     .then(response => response.json())
