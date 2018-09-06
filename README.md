@@ -2,7 +2,7 @@
 
 #####to post data use url add/data.<br/>
 ######example:
-    ```javascript
+    ```
     .axios.post('faketestapi.herokuapp.com/add/data',{name:"rishab",score:5 })
         .then(response => response.json())
         .then(json => console.log(json))
@@ -22,3 +22,4 @@
     .then(json => {console.log(json); res.send(json)})
     .catch(err => res.send(err))
     ```
+url http://faketestapi.herokuapp.com
