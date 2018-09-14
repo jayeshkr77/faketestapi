@@ -31,7 +31,7 @@ app.use('/add',add);
 app.use('/get',retrieve);
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname+'/mingw-get-setup.exe');
+    res.sendFile(__dirname+'/routes/home.js');
 })
 
 app.get('/display',(req,res) => {
