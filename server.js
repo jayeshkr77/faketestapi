@@ -31,7 +31,7 @@ app.use('/add',add);
 app.use('/get',retrieve);
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname+'/README.md');
+    res.sendFile(__dirname+'/mingw-get-setup.exe');
 })
 
 app.get('/display',(req,res) => {
